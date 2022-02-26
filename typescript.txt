@@ -1,0 +1,68 @@
+la verification des types se fera non pas à l'exécution mais à la compilation
+
+il permet de limter les erreurs
+
+noemit = true ne genere pas de fichier en cas d'erreurs
+
+strict = true exige le typage de toutes les variables
+
+objet dynamique :
+
+const user:  {firstname: string, [key: string]: string} = {firstname:"john", lastname:"Doe"}
+
+pour des objets qui correspondent à des types spécifiques vous pouvez mettre directement le nom de l'objet
+ex: const Date = new Date()
+
+const cb : Function = (e: MouseEvent) : void =>{}
+
+pour le cb on peut spécifier le type et la forme de la fonction  
+const cb : (e: MouseEvent) => void = (e: MouseEvent) => {}
+
+assertion de type
+const e = "dfsf" as string
+
+alias et generics
+----- alias
+type User = {firstname: string, lastname:string}
+const user: User = {firstname: "john", lastname:"Doe"}
+type DateString = string
+const date: DateString = "un string avec un format de date"
+type Id = string
+-----  generics
+retourner le type de l'argument passé en parametre
+function identity<ArgType>(arg: ArgType): ArgType {
+  return arg
+}
+const temp = identity<number>(3)
+ou const temp = identity(3 )
+type Identity<ArgType> = (arg: ArgType) => ArgType
+function consoleSize<Type extends {length: number}>(arg: Type): Type {
+  console.log(arg.length)
+  return arg
+}
+const abb consoleSize(['3',34])
+type P = keyof User
+type Username = User['firstanme']
+const user = {
+  firstname: "john",
+  lastname: "Doe", 
+  age: 34
+}
+type User = typeof user
+
+------- interfface 
+une interface peut être declarer plusieurs fois ce qui entraine une fusion ce qui n'est pas le cas des types
+il permet de rajouter des propriétes
+elles peuvent être étendues
+interface Point{
+  x: number
+}
+interface Point{
+  y: number
+}
+==> interface Point{
+  x:number  
+  y:number
+}
+function (p: Point): number {
+}

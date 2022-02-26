@@ -1,0 +1,140 @@
+.home {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f2f5;;
+
+  .presence-list {
+    position: relative;
+    width: 100vw;
+    height: auto;
+    .table-container {
+      width: 70%;
+      margin: auto;
+
+    }
+    .header {
+      text-align: center;
+    }
+    h1 {
+      text-align: center;
+      opacity: 80%;
+    }
+    .info {
+      text-align: center;
+      color: #0d6efd;
+      margin: auto;
+      font-weight: 100;
+    }
+    table {
+      margin: auto;
+      border:1px solid #c6c6c6;
+      box-shadow: inset 0 0px 0px 0 rgba(0, 0, 0, 0.2),
+      inset 0 0px 3px 0 rgba(0, 0, 0, 0.2);
+      background-color: white;
+
+      .table-body-row{
+        border: none;
+        
+      }
+      thead {
+        background-color: #0457d2;
+        color: white;
+      }
+      tbody {
+        cursor: pointer;
+        border-top: none;
+      }
+      td{
+        padding: 14px !important;
+        opacity: 90%;
+        border-bottom: none !important;
+      }
+      tr {
+        border-style: none  !important;
+        text-align: center;
+      }
+      #green::before {
+        content: "";
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        background-color: #29d529;
+        border-radius: 13px;
+        margin-top: 6px;
+        margin-left: -17px;
+        transition: 1s;
+      }
+      #red::before {
+        content: "";
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        background-color: #d52929;
+        border-radius: 13px;
+        margin-top: 6px;
+        margin-left: -17px;
+        transition: 1s;
+      }
+    }
+  }
+  .modal-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* ces 4 composants permettent de faire un plein ecran */
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1212;
+
+    .modalle {
+      position: relative;
+      background: #0d6efd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      width: 314px;
+      animation: modalopen 1s;
+      border-radius: px;
+      max-width: 90%;
+    }
+    @keyframes modalopen {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .close {
+      margin-left: 290px;
+      color: whitesmoke;
+      cursor: pointer;
+    }
+    form {
+      background-color: whitesmoke;
+      padding: 20px;
+      position: relative;
+
+      label {
+        display: block;
+        padding-bottom: 10px;
+      }
+      .input {
+        border: none;
+        border-bottom: 0.5px solid #0d6efd;
+        padding-bottom: 6px;
+      }
+      .input:focus {
+        border: none;
+      }
+      .btn {
+        margin-left: 10px;
+        background-color: #0d6efd;
+        color: beige;
+      }
+    }
+  }
+}

@@ -1,0 +1,168 @@
+.admin{
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  
+
+  .wrapper {	
+    margin-top: 80px;
+    margin-bottom: 80px;
+    
+    .form-group-in {
+      border-radius: 12px;
+      max-width: 230px;
+      padding: 17px 13px 18px;
+      margin: 0 auto;
+      background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 10px rgba(0,0,0,0.06), 0 1px 8px rgba(0,0,0,0.1);  
+    
+    h2{
+      padding-bottom: 23px;
+      text-align: center;
+    }
+    
+    input[type="password"]{
+      margin-top:-11px
+    }
+    
+    button.btn{
+      margin-top: 12px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 12px;
+      color: white;
+      height: 36px;
+    }
+    
+    #btn-td{
+      text-align: center;
+    }
+    
+    hr{
+      margin: -17px auto 10px auto !important;
+      width: 50%;
+      height: 0.5px !important;
+    }
+  }
+}
+  
+#h1{
+  text-align: center;
+  margin-bottom: 64px;
+  margin-top: 13px;
+}
+
+.presence-list{
+  position: relative;
+  
+  #table{
+    width: 80%;
+  }
+  
+  #deconnexion{
+    position: absolute;
+    right: 0;
+    top: -50px;
+    margin-right: 19px;
+  }
+  
+  .table{
+    cursor: default;
+    margin: auto;
+    width: 90%;
+    box-shadow:0 1px 10px rgba(0,0,0,0.06), 0 1px 8px rgba(0,0,0,0.1);  
+    transition: 1s;
+    
+    thead{
+      background-color: #0d6efd;
+      color: white;
+    };  
+
+    tbody{
+      border-top:none !important;
+    }
+
+    td{
+      text-align: center;
+    }     
+
+    tr{
+      text-align: center;
+      vertical-align: middle;
+    } 
+
+    #green::before{
+      content: "";
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      background-color: #29d529;
+      border-radius: 13px;
+      margin-top: 6px;
+      margin-left: -17px;
+      transition:1s;
+      box-shadow: 0 0 50px #29d529;
+
+    }
+
+    #red::before{
+      content: "";
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      background-color: #d52929;
+      border-radius: 13px;
+      margin-top: 6px;
+      margin-left: -17px;
+      transition:1s;
+      box-shadow: 0 0 50px #d52929 ;
+    }
+  }
+}
+}
+
+
+
+
+
+
+//   .form-signin-heading,
+// 	.checkbox {
+  // 	  margin-bottom: 30px;
+  // 	}
+  
+// 	.checkbox {
+// 	  font-weight: normal;
+// 	}
+
+// 	.form-control {
+// 	  position: relative;
+// 	  font-size: 16px;
+// 	  height: auto;
+// 	  padding: 10px;
+		
+// 		&:focus {
+// 		  z-index: 2;
+// 		}
+// 	}
+
+// 	input[type="text"] {
+// 	  margin-bottom: -1px;
+// 	  border-right: 0;
+//     border-color: #6c7ae0;
+//     margin-bottom: 7px;
+//     border-top: 0;
+//     border-left: 0;
+    
+// 	}
+
+// 	input[type="password"] {
+// 	  margin-bottom: 20px;
+// 	  border-right: 0;
+//     border-color: #6c7ae0;
+//     margin-bottom: 7px;
+//     border-top: 0;
+//     border-left: 0;
+// 	}
+// }

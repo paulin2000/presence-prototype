@@ -1,0 +1,508 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+.home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.home .presence-list {
+  position: relative;
+  width: 100vw;
+  height: auto;
+}
+
+.home .presence-list .table-container {
+  width: 70%;
+  margin: auto;
+}
+
+.home .presence-list .header {
+  text-align: center;
+}
+
+.home .presence-list h1 {
+  text-align: center;
+  opacity: 80%;
+}
+
+.home .presence-list .info {
+  text-align: center;
+  color: #0d6efd;
+  margin: auto;
+  font-weight: 100;
+}
+
+.home .presence-list table {
+  margin: auto;
+  border: 1px solid #c6c6c6;
+  -webkit-box-shadow: inset 0 0px 0px 0 rgba(0, 0, 0, 0.2), inset 0 0px 3px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 0px 0px 0 rgba(0, 0, 0, 0.2), inset 0 0px 3px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.home .presence-list table .table-body-row {
+  border: none;
+}
+
+.home .presence-list table thead {
+  background-color: #0457d2;
+  color: white;
+}
+
+.home .presence-list table tbody {
+  cursor: pointer;
+  border-top: none;
+}
+
+.home .presence-list table td {
+  padding: 14px !important;
+  opacity: 90%;
+  border-bottom: none !important;
+}
+
+.home .presence-list table tr {
+  border-style: none  !important;
+  text-align: center;
+}
+
+.home .presence-list table #green::before {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background-color: #29d529;
+  border-radius: 13px;
+  margin-top: 6px;
+  margin-left: -17px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.home .presence-list table #red::before {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background-color: #d52929;
+  border-radius: 13px;
+  margin-top: 6px;
+  margin-left: -17px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.home .modal-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* ces 4 composants permettent de faire un plein ecran */
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1212;
+}
+
+.home .modal-container .modalle {
+  position: relative;
+  background: #0d6efd;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  width: 314px;
+  -webkit-animation: modalopen 1s;
+          animation: modalopen 1s;
+  border-radius: px;
+  max-width: 90%;
+}
+
+@-webkit-keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.home .modal-container .close {
+  margin-left: 290px;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.home .modal-container form {
+  background-color: whitesmoke;
+  padding: 20px;
+  position: relative;
+}
+
+.home .modal-container form label {
+  display: block;
+  padding-bottom: 10px;
+}
+
+.home .modal-container form .input {
+  border: none;
+  border-bottom: 0.5px solid #0d6efd;
+  padding-bottom: 6px;
+}
+
+.home .modal-container form .input:focus {
+  border: none;
+}
+
+.home .modal-container form .btn {
+  margin-left: 10px;
+  background-color: #0d6efd;
+  color: beige;
+}
+
+.admin {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.admin .wrapper {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.admin .wrapper .form-group-in {
+  border-radius: 12px;
+  max-width: 230px;
+  padding: 17px 13px 18px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.06), 0 1px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.06), 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin .wrapper .form-group-in h2 {
+  padding-bottom: 23px;
+  text-align: center;
+}
+
+.admin .wrapper .form-group-in input[type="password"] {
+  margin-top: -11px;
+}
+
+.admin .wrapper .form-group-in button.btn {
+  margin-top: 12px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 12px;
+  color: white;
+  height: 36px;
+}
+
+.admin .wrapper .form-group-in #btn-td {
+  text-align: center;
+}
+
+.admin .wrapper .form-group-in hr {
+  margin: -17px auto 10px auto !important;
+  width: 50%;
+  height: 0.5px !important;
+}
+
+.admin #h1 {
+  text-align: center;
+  margin-bottom: 64px;
+  margin-top: 13px;
+}
+
+.admin .presence-list {
+  position: relative;
+}
+
+.admin .presence-list #table {
+  width: 80%;
+}
+
+.admin .presence-list #deconnexion {
+  position: absolute;
+  right: 0;
+  top: -50px;
+  margin-right: 19px;
+}
+
+.admin .presence-list .table {
+  cursor: default;
+  margin: auto;
+  width: 90%;
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.06), 0 1px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.06), 0 1px 8px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.admin .presence-list .table thead {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.admin .presence-list .table tbody {
+  border-top: none !important;
+}
+
+.admin .presence-list .table td {
+  text-align: center;
+}
+
+.admin .presence-list .table tr {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.admin .presence-list .table #green::before {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background-color: #29d529;
+  border-radius: 13px;
+  margin-top: 6px;
+  margin-left: -17px;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-box-shadow: 0 0 50px #29d529;
+          box-shadow: 0 0 50px #29d529;
+}
+
+.admin .presence-list .table #red::before {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background-color: #d52929;
+  border-radius: 13px;
+  margin-top: 6px;
+  margin-left: -17px;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-box-shadow: 0 0 50px #d52929;
+          box-shadow: 0 0 50px #d52929;
+}
+
+.mois-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* ces 4 composants permettent de faire un plein ecran */
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow-y: auto;
+}
+
+.mois-container .sau {
+  margin: 5px;
+  color: #787575;
+}
+
+.mois-container .close {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  margin: 20px;
+  z-index: 23;
+  background-color: #0dcaf0;
+  color: white;
+}
+
+.mois-container .mois-list {
+  padding: 10px;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 10px;
+  grid-auto-flow: column;
+  background: #e9ecef;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  overflow-y: auto;
+  -webkit-animation: modalopen 1s;
+          animation: modalopen 1s;
+}
+
+.mois-container .mois-list .mois {
+  background-color: #f8f9fa;
+  border: 1px solid #d1d3d5;
+}
+
+.mois-container .mois-list div ul {
+  -webkit-box-shadow: inset 0 0px 0px 0 rgba(0, 0, 0, 0.2), inset 0 0px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 0px 0px 0 rgba(0, 0, 0, 0.2), inset 0 0px 5px 0 rgba(0, 0, 0, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  color: #787575;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.mois-container .mois-list div ul li {
+  border-bottom: 0.5px solid #e1dede;
+}
+
+.mois-container .mois-list div ul span {
+  margin: 8px;
+}
+
+.mois-container .mois-list div #somme {
+  color: #0d6efd;
+  padding: 8px 46px;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.signup-body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f2f5;
+  margin-top: -8px;
+}
+
+.signup-body .signup-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1212;
+}
+
+.signup-body .form-container {
+  width: 501px;
+  background-color: #ffffff;
+  text-align: center;
+  border: 1px solid #ebe8e8;
+  padding: 14px 0 16px 0;
+  border-radius: 11px;
+}
+
+.signup-body .form-container h1 {
+  color: #818181;
+  padding-bottom: 13px;
+}
+
+.signup-body .two {
+  margin: 10px auto;
+}
+
+.signup-body input {
+  background-color: #f5f6f7 !important;
+  border: 1px solid #ccd0d5;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 11px;
+}
+
+.signup-body input:first-child {
+  margin-right: 10px;
+}
+
+.signup-body label {
+  position: absolute;
+  opacity: 50%;
+}
+
+.signup-body #sexe {
+  margin-right: 10px;
+}
+
+.signup-body select {
+  margin-top: 26px;
+  background-color: white !important;
+  color: #6f7070;
+  border: 1px solid #ccd0d5;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 11px;
+  width: 220px;
+}
+
+.signup-body button {
+  font-size: 16px;
+  padding: 11px;
+  width: 220px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #00a400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/*# sourceMappingURL=index.css.map */
