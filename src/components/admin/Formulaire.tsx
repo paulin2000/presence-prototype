@@ -6,6 +6,8 @@ const socket = io(Server_Address);
 interface form {
   setConnected: any;
   connected: boolean;
+  setRole: any
+
 }
 
 const Formulaire = (props: form) => {
@@ -16,8 +18,9 @@ const Formulaire = (props: form) => {
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     socket.emit("authentification", { identifiant, password });
-    socket.on("authSuccess", () => {
+    socket.on("authSuccess", (role) => {
       props.setConnected(false);
+      props.setRole(role)
       localStorage.setItem(
         "connexion",
         JSON.stringify({ status: "connected" })

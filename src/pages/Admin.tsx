@@ -5,6 +5,7 @@ import SignUp from "../components/admin/SignUp";
 import UpdateUser from '../components/admin/UpdateUser';
 
 const Admin = () => {
+  const [role, setRole] = useState<string>('admin')
   const [connected, setConnected] = useState<boolean>(true);
 
   useEffect(() => {
@@ -16,12 +17,12 @@ const Admin = () => {
     <div className="admin">
       {connected === true ? (
         <div className="formulaire">
-          <Formulaire setConnected={setConnected} connected={connected} />
+          <Formulaire setRole={setRole} setConnected={setConnected} connected={connected} />
         </div>
       ) : (
         <div className="admin-dashboard">
           <h1 id="h1">Gestion et Suivi des Employés</h1>
-          <EmployeList />
+          <EmployeList role={role}/>
         </div>
       )}
       {/* <SignUp/> */}

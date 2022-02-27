@@ -37,24 +37,26 @@ const PresenceList = () => {
         />
       )}
       <div className="header">
-        <h1>Controle De Présence</h1>
+        <span id="title">Controle De Présence</span>
         <span className="info">
-          NB:Cliquez sur votre nom. Ensuite entrez votre code pour valider votre
+          Cliquez sur votre nom. Ensuite entrez votre code pour valider votre
           présence
         </span>
+        
       </div>
-      <div className="table-container">
-        <table className="table table-striped" id="table">
-          <thead className="table-head">
-            <tr className="table-head-row">
-              <th>Nom</th>
-              <th>Prenom</th>
-              <th>Sexe</th>
-              <th>Presence</th>
-            </tr>
-          </thead>
-          <tbody className="table-body">
-            {persons.map((person, index) => {
+      <div className="tablle-body">
+          
+          <table className="table-body">
+            <thead className="tablle-container" id="tablle">
+              <tr className="tablle-head">
+                  <th>Nom</th>
+                  <th>Prenom</th>
+                  <th>Sexe</th>
+                  <th>Presence</th>
+              </tr>
+              </thead>
+            <tbody>
+              {persons.map((person, index) => {
               return (
                 <tr
                   key={index}
@@ -64,23 +66,25 @@ const PresenceList = () => {
                     setUserId(person.id);
                   }}
                 >
-                  <td>{person.first_name}</td>
-                  <td>{person.last_name}</td>
-                  <td>{person.sexe}</td>
-                  <td>
-                    {person.presence === "present" ? (
-                      <span id="green">Present</span>
-                    ) : (
-                      <span id="red">Absent</span>
-                    )}
-                  </td>
+                      <td>{person.first_name}</td>
+                      <td>{person.last_name}</td>
+                      <td>{person.sexe}</td>
+                      <td>
+                        {person.presence === "present" ? (
+                          <span id="green">Present</span>
+                        ) : (
+                          <span id="red">Absent</span>
+                        )}
+                      </td>
+                      
                 </tr>
               );
             })}
-          </tbody>
-        </table>
+            </tbody>
+            
+          </table>
+        </div>
       </div>
-    </div>
   );
 };
 

@@ -1,26 +1,37 @@
 import io from "socket.io-client";
-import { useState } from "react";
-import { isBuffer } from "util";
-import { Alert } from "react-bootstrap";
+import { useState, useEffect } from 'react';
+import { preProcessFile } from "typescript";
+
 
 const Server_Address: string = "http://localhost:5000";
 const socket = io(Server_Address);
 
-// interface Props{
-//   id: number
-// }
+interface UserInfo{
+  first_name: string,
+  last_name: string, 
+  sexe: string,
+  secret_code: string,
+  role: string
+}
 
-const UpdateUser = () => {
-  const [name, setname] = useState<string>("")
-  const [lastName, setLastName] = useState<string>("")
+interface Props{
+  userInfo: any
+  setUpdateUserModal: any
+}
+
+const UpdateUser = (props: Props) => {
+  const [name, setname] = useState<string>(props.userInfo.first_name)
+  const [lastName, setLastName] = useState<string>(props.userInfo.last_name)
   const [password, setPassword] = useState<string>("")
   const [confPassword, setConfPassword] = useState<string>("")
   const [sexe, setSexe] = useState<string>("")
   const [role, setRole] = useState<string>("")
-  const s: React.RefAttributes<HTMLDivElement> = <h1>salut</h1>
+
+  let UserData: UserInfo = props.userInfo
 
   const handleSubmit = (e:React.SyntheticEvent) => {
     e.preventDefault()
+    console.log(UserData)
     // socket.emit("updateUser",id)
     // socket.on("updateUserSuccess",()=>{})
     console.log(name, lastName, password, confPassword, sexe, role)
@@ -28,6 +39,8 @@ const UpdateUser = () => {
       console.log('gggg')
     } 
   }
+
+
 
   return (
     <div className="signup-body">
@@ -40,21 +53,23 @@ const UpdateUser = () => {
           <div className="form-body">
             <form action="" onSubmit={handleSubmit}>
               <div className="form-group">
-                <input type="text" value={name} defaultValue={name} onChange={(e)=>{setname(e.target.value)}}placeholder="Name" />
-                <input type="text" value={lastName}defaultValue={lastName} onChange={(e)=>{setLastName(e.target.value)}}placeholder="Last name" />
+                <input type="text"  defaultValue={props.userInfo.first_name} onChange={(e)=>
+                  {
+                    UserData.first_name = e.target.value}}placeholder="Name" />
+                <input type="text" defaultValue={props.userInfo.last_name}  onChange={(e)=>{ UserData.last_name = e.target.value}}placeholder="Last name" />
               </div>
               <div className="form-group two">
-                <input type="password" value={password}defaultValue={password} onChange={(e)=>{setPassword(e.target.value)}}placeholder="New password" />
-                <input type="password" value={confPassword}defaultValue={confPassword} onChange={(e)=>{setConfPassword(e.target.value)}}placeholder="Confirm password" />
+                <input type="password" defaultValue={props.userInfo.secret_code} onChange={(e)=>{UserData.secret_code = e.target.value}}placeholder="New password" />
+                <input type="password" defaultValue={props.userInfo.secret_code} onChange={(e)=>{setConfPassword(e.target.value)}}placeholder="Confirm password" />
               </div>
               <div className="form-group">
                 <label htmlFor="sexe">Sexe</label>
-                <select name="Sexe" id="sexe"  value={sexe} defaultValue={sexe} onChange={(e)=> setSexe(e.target.value)}>
+                <select name="Sexe" id="sexe"  onChange={(e)=> UserData.sexe = e.target.value}>
                   <option value="Masculin">Masculin</option>
                   <option value="Feminin">Feminin</option>
                 </select>
                 <label htmlFor="role">Rôle</label>
-                <select name="Rôle" id="role" value={role} onChange={(e)=>{setRole(e.target.value)}}defaultValue={role}>
+                <select name="Rôle" id="role" defaultValue={props.userInfo.role} onChange={(e)=>{UserData.role = e.target.value}}>
                   <option value="Employé">Employé</option>
                   <option value="Comtabilité">Comtabilité</option>
                   <option value="Administration">Administration</option>
