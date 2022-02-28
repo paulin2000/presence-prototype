@@ -18,7 +18,15 @@ const Formulaire = (props: form) => {
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     socket.emit("authentification", { identifiant, password });
-    socket.on("authSuccess", (role) => {
+    socket.on("authSuccessAdmin", (role) => {
+      props.setConnected(false);
+      props.setRole(role)
+      localStorage.setItem(
+        "connexion",
+        JSON.stringify({ status: "connected" })
+      );
+    });
+    socket.on("authSuccessCompta", (role) => {
       props.setConnected(false);
       props.setRole(role)
       localStorage.setItem(

@@ -260,18 +260,7 @@
   margin-top: 13px;
 }
 
-.admin .presence-list {
-  position: relative;
-}
-
-.admin .presence-list #deconnexion {
-  position: absolute;
-  right: 0;
-  top: -50px;
-  margin-right: 19px;
-}
-
-.admin .presence-list .presence-list {
+.admin .presence-list-admin {
   position: relative;
   margin: 30px auto;
   width: 60%;
@@ -281,7 +270,24 @@
   border-radius: 11PX;
 }
 
-.admin .presence-list .presence-list #title {
+.admin .presence-list-admin #deconnexion {
+  position: absolute;
+  right: 0;
+  top: -40px;
+  font-size: 10px !important;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.admin .presence-list-admin #create {
+  position: absolute;
+  top: -40px;
+  font-size: 10px !important;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.admin .presence-list-admin #title {
   font-size: 22px;
   display: block;
   font-weight: 400;
@@ -289,21 +295,21 @@
   color: #41464bbf;
 }
 
-.admin .presence-list .presence-list .table-container {
+.admin .presence-list-admin .table-container {
   width: 70%;
   margin: auto;
 }
 
-.admin .presence-list .presence-list .header {
+.admin .presence-list-admin .header {
   text-align: center;
 }
 
-.admin .presence-list .presence-list h1 {
+.admin .presence-list-admin h1 {
   text-align: center;
   opacity: 80%;
 }
 
-.admin .presence-list .presence-list .info {
+.admin .presence-list-admin .info {
   text-align: center;
   font-size: 13px;
   color: #0d6efd;
@@ -311,7 +317,7 @@
   font-weight: 500;
 }
 
-.admin .presence-list .presence-list .tablle-head {
+.admin .presence-list-admin .tablle-head {
   font-size: 12px;
   border: 1px solid #e3e3e3;
   border-left: none;
@@ -320,17 +326,17 @@
   color: #555554;
 }
 
-.admin .presence-list .presence-list .tablle-head li {
+.admin .presence-list-admin .tablle-head li {
   list-style: none;
 }
 
-.admin .presence-list .presence-list .table-body {
+.admin .presence-list-admin .table-body {
   list-style: none;
   padding: 0;
   width: 100%;
 }
 
-.admin .presence-list .presence-list .table-body thead th {
+.admin .presence-list-admin .table-body thead th {
   -webkit-box-shadow: 0 3px 2px #dee2e6;
           box-shadow: 0 3px 2px #dee2e6;
   letter-spacing: 0.01rem;
@@ -342,27 +348,43 @@
 }
 
 *
-.admin .presence-list .presence-list .table-body thead th:first-child {
+.admin .presence-list-admin .table-body thead th:first-child {
   padding-left: 10px;
 }
 
-.admin .presence-list .presence-list .table-body tr {
+.admin .presence-list-admin .table-body thead th:last-child {
+  text-align: center;
+}
+
+.admin .presence-list-admin .table-body tr {
   font-weight: 400;
   font-size: smaller;
 }
 
-.admin .presence-list .presence-list .table-body td {
+.admin .presence-list-admin .table-body td {
   cursor: pointer;
   padding: 7px 0;
   border-top: none;
   border-bottom: 1px solid #e9ecef;
 }
 
-.admin .presence-list .presence-list .table-body td:first-child {
+.admin .presence-list-admin .table-body td:first-child {
   padding-left: 10px;
 }
 
-.admin .presence-list .presence-list .table-body #green {
+.admin .presence-list-admin .table-body td:last-child {
+  text-align: center;
+  font-size: 12px;
+}
+
+.admin .presence-list-admin .table-body td:last-child button {
+  font-size: 10px !important;
+  font-weight: 600;
+  padding: 5px;
+  margin: 1px;
+}
+
+.admin .presence-list-admin .table-body #green {
   border-radius: 3px;
   color: #0cb60c;
   border: 1px solid;
@@ -375,7 +397,7 @@
   transition: 2s;
 }
 
-.admin .presence-list .presence-list .table-body #red {
+.admin .presence-list-admin .table-body #red {
   border-radius: 3px;
   font-weight: 600;
   color: #ff0a21;
@@ -488,14 +510,12 @@
 }
 
 .signup-body {
-  width: 100vw;
-  height: 100vh;
   background-color: #f0f2f5;
   margin-top: -8px;
 }
 
 .signup-body .signup-container {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: #3e3b3b99;
   position: fixed;
   top: 0;
   left: 0;
@@ -515,6 +535,7 @@
 
 .signup-body .form-container {
   width: 501px;
+  position: relative;
   background-color: #ffffff;
   text-align: center;
   border: 1px solid #ebe8e8;
@@ -525,6 +546,14 @@
 .signup-body .form-container h1 {
   color: #818181;
   padding-bottom: 13px;
+}
+
+.signup-body .form-container #close {
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  font-size: 22px;
 }
 
 .signup-body .two {
@@ -560,7 +589,7 @@
   border-radius: 5px;
   font-size: 16px;
   padding: 11px;
-  width: 220px;
+  width: 206px;
 }
 
 .signup-body button {

@@ -7,6 +7,7 @@ const Server_Address: string = "http://localhost:5000";
 const socket = io(Server_Address);
 
 interface UserInfo{
+  id: number,
   first_name: string,
   last_name: string, 
   sexe: string,
@@ -26,29 +27,45 @@ const UpdateUser = (props: Props) => {
   const [confPassword, setConfPassword] = useState<string>("")
   const [sexe, setSexe] = useState<string>("")
   const [role, setRole] = useState<string>("")
-
+  const   [error, setError] = useState<boolean>(false)
+  const [success, setSuccess] = useState<boolean>(false)
   let UserData: UserInfo = props.userInfo
 
   const handleSubmit = (e:React.SyntheticEvent) => {
     e.preventDefault()
-    console.log(UserData)
-    // socket.emit("updateUser",id)
-    // socket.on("updateUserSuccess",()=>{})
-    console.log(name, lastName, password, confPassword, sexe, role)
-    if(password !== confPassword){
-      console.log('gggg')
-    } 
+    if(password === "" || password !== confPassword ){
+      console.log("error")
+      setError(true)
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
+    }else{
+      console.log(UserData)
+      socket.emit("sakut","eee")
+      socket.emit("updateUserData",UserData)
+      socket.on("updateUserSuccess",()=>{
+        setSuccess(true)
+        setTimeout(() => {
+          setSuccess(false);
+          props.setUpdateUserModal(false)
+        }, 2000);
+        
+    })
+    }
+    
+    
+    
   }
 
 
 
   return (
     <div className="signup-body">
-      <h1>Update User</h1>
       <div className="signup-container">
         <div className="form-container">
           <div className="form-header">
             <h1>Update User</h1>
+            <span id="close" onClick={()=>{props.setUpdateUserModal(false)}}>&#10005;</span>
           </div>
           <div className="form-body">
             <form action="" onSubmit={handleSubmit}>
@@ -56,11 +73,13 @@ const UpdateUser = (props: Props) => {
                 <input type="text"  defaultValue={props.userInfo.first_name} onChange={(e)=>
                   {
                     UserData.first_name = e.target.value}}placeholder="Name" />
-                <input type="text" defaultValue={props.userInfo.last_name}  onChange={(e)=>{ UserData.last_name = e.target.value}}placeholder="Last name" />
+                <input type="text" defaultValue={props.userInfo.last_name}  onChange={(e)=>{ 
+                  UserData.last_name = e.target.value}}placeholder="Last name" />
               </div>
               <div className="form-group two">
-                <input type="password" defaultValue={props.userInfo.secret_code} onChange={(e)=>{UserData.secret_code = e.target.value}}placeholder="New password" />
-                <input type="password" defaultValue={props.userInfo.secret_code} onChange={(e)=>{setConfPassword(e.target.value)}}placeholder="Confirm password" />
+                <input type="password" onChange={(e)=>{
+                  setPassword(e.target.value); UserData.secret_code = e.target.value;}}placeholder="New password" />
+                <input type="password" onChange={(e)=>{setConfPassword(e.target.value)}}placeholder="Confirm password" />
               </div>
               <div className="form-group">
                 <label htmlFor="sexe">Sexe</label>
@@ -78,6 +97,12 @@ const UpdateUser = (props: Props) => {
               <div className="buton">
                 <button className="btn btn-success">Update</button>
               </div>
+              {error === true && <div className="error">
+                <span>Mots de passes invalides. Reéssayer...</span>
+              </div>}
+              {success === true && <div className="success">
+                    <span>Modification effectuer avec success</span>
+                </div>}
             </form>
           </div>
         </div>

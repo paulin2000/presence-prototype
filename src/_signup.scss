@@ -1,12 +1,10 @@
 .signup-body{
-  width: 100vw;
-  height: 100vh;
   background-color: #f0f2f5;
   margin-top: -8px;
 
   .signup-container{
 
-    background-color: rgba(255, 255, 255, 0.600);
+    background-color: #3e3b3b99;
     position: fixed;
     top: 0;
     left: 0;
@@ -20,6 +18,7 @@
   }
   .form-container{
     width: 501px;
+    position: relative;
     background-color: #ffffff;
     text-align: center;
     border: 1px solid #ebe8e8;
@@ -29,6 +28,13 @@
     h1{
       color: #818181;
       padding-bottom: 13px;
+    }
+    #close{
+      cursor: pointer;
+      position: absolute;
+      top: 5px;
+      right: 20px;
+      font-size: 22px;
     }
   }
   .two{
@@ -62,7 +68,7 @@
     border-radius: 5px;
     font-size: 16px;
     padding: 11px;
-    width: 220px;
+    width: 206px;
 
   }
   button{

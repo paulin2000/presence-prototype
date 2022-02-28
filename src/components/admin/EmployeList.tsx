@@ -4,6 +4,7 @@ import io from "socket.io-client";
 import UpdateUser from './UpdateUser';
 import { userInfo } from "os";
 import SignUp from './SignUp';
+import DeleteUserModal from "./DeleteUserModal";
 const Server_Address: string = "http://localhost:5000";
 const socket = io(Server_Address);
 
@@ -20,6 +21,7 @@ type tableauObjet = Array<{
 }>;
 
 interface UserInfo{
+  id: number,
   first_name: string,
   last_name: string, 
   sexe: string,
@@ -34,10 +36,11 @@ const EmployeList = (props:Props) => {
   const [updateUserModal, setUpdateUserModal] = useState<boolean>(false)
   const [deleleUserModal, setDeleteUserModal] = useState<boolean>(false)
   const [createUserModal, setCreateUserModal] = useState<boolean>(false)
+  const [deleteid, setDeleteId] = useState<number>(0)
   const [dashboard, setDashboard] = useState<boolean>(true)
   const [id, setId] = useState<number>(0);
   const [moisListData, setData] = useState();
-  const [updateUserInfo, setUpdateUserInfo] = useState<UserInfo>({ first_name: "",
+  const [updateUserInfo, setUpdateUserInfo] = useState<UserInfo>({ id:0,first_name: "",
     last_name: "", 
     sexe: "",
     secret_code: "",
@@ -87,17 +90,10 @@ const EmployeList = (props:Props) => {
     socket.emit("updateUser", e)
     socket.on("updateUserRes", (res)=>{
       setUpdateUserInfo(res)
-      setUpdateUserModal(true)
     })
     socket.emit("allusers")
   }
 
-  // const deleteUser = (e: number) =>{
-  //   socket.emit("deleteUser",id)
-  //   socket.on("deleteUserRes", (res)=>{
-  //     socket.emit("allusers")
-  //   })
-  // }
 
   // const createUser = (data: UserInfo) =>{
   //   socket.emit("createUser", data)
@@ -109,7 +105,7 @@ const EmployeList = (props:Props) => {
 
   return (
     <>
-      {dashboard === true && <div className="presence-list">
+      {dashboard === true && <div className="presence-list-admin">
           <div className="table-cont">
             <button
               onClick={disconnect}
@@ -118,6 +114,13 @@ const EmployeList = (props:Props) => {
             >
               Deconnexion
             </button>
+            {props.role === "admin" && <button
+              onClick={()=>setCreateUserModal(true)}
+              id="create"
+              className="btn btn-secondary"
+            >
+              Creéer un nouvel utilisateur
+            </button>}
             <div className="tablle-body">
                   <table className="table-body">
             <thead className="tablle-container" id="tablle">
@@ -150,7 +153,7 @@ const EmployeList = (props:Props) => {
                           onClick={() => {
                             history(person.id);
                           }}
-                          className="btn btn-info"
+                          className="btn btn-success"
                         >
                           horaires
                         </button>
@@ -160,17 +163,19 @@ const EmployeList = (props:Props) => {
                             onClick={() => {
                               updateUser(person.id);
                             }}
-                            className="btn btn-success"
+                            className="btn btn-primary"
                             >
-                            horaires
+                            modifier
                           </button>
                           <button
                             onClick={() => {
-                              // deleteUser(person.id);
+                              setDeleteId(person.id)
+                              setDashboard(false)
+                              setDeleteUserModal(true)
                             }}
-                            className="btn btn-primary"
+                            className="btn btn-danger"
                             >
-                            horaires
+                            supprimer
                           </button>
                         </>
                         }
@@ -187,9 +192,9 @@ const EmployeList = (props:Props) => {
           </div>
         </div>}
       {moisList === true  && <MoisList setMoisList={setMoisList} id={id} data={moisListData} />}
-      {updateUserModal === true && <UpdateUser userInfo={updateUserInfo} setUpdateUserModal={setUpdateUserModal}/>}
-      {/* {createUserModal === true && <SignUp setCreateUserModal={setCreateUserModal}/>}
-      {deleleUserModal === true && <DeleteUserModal setDeleteUserModal={setDeleteUserModal}/>} */}
+      {updateUserModal === true && <UpdateUser userInfo={updateUserInfo} setUpdateUserModal={setUpdateUserModal}/>} 
+      {createUserModal === true && <SignUp setCreateUserModal={setCreateUserModal}/>}
+      {deleleUserModal === true && <DeleteUserModal setDashboard={setDashboard} id={deleteid}setDeleteUserModal={setDeleteUserModal}/>}
     </>
   );
 };

@@ -50,20 +50,7 @@
   margin-bottom: 64px;
   margin-top: 13px;
 }
-
-.presence-list{
-  position: relative;
-  
-  
-  
-  #deconnexion{
-    position: absolute;
-    right: 0;
-    top: -50px;
-    margin-right: 19px;
-  }
-
-  .presence-list {
+  .presence-list-admin {
     position: relative;
     margin: 30px auto;
     width: 60%;
@@ -71,6 +58,21 @@
     background-color: white;
     border-radius: 11PX;
 
+    #deconnexion{
+      position: absolute;
+      right: 0;
+      top: -40px;
+      font-size: 10px !important;
+      font-weight: 600;
+      padding: 5px;
+    }
+    #create{
+      position:absolute;
+      top:-40px;
+      font-size: 10px !important;
+      font-weight: 600;
+      padding:5px
+    }
     #title{
       font-size: 22px;
       display: block;
@@ -132,6 +134,10 @@
           padding-left:10px
         }
 
+        &:last-child{
+          text-align: center;
+        }
+
         }
       }
 
@@ -149,7 +155,20 @@
         &:first-child{
           padding-left:10px
         }
+
+        &:last-child{
+          text-align: center;
+          font-size: 12px;
+
+          button{
+            font-size: 10px!important;
+            font-weight: 600;
+            padding:5px;
+            margin:1px
+          }
+        }
       }
+      
       #green{
         border-radius: 3px;
         color: #0cb60c;
@@ -176,7 +195,7 @@
     }
   
   
-}
+
 }
 
 
