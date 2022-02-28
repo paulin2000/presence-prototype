@@ -4,9 +4,9 @@ const Server_Address: string = "http://localhost:5000";
 const socket = io(Server_Address);
 
 interface form {
-  setConnected: any;
+  setConnected: React.Dispatch<React.SetStateAction<boolean>>;
   connected: boolean;
-  setRole: any
+  setRole: React.Dispatch<React.SetStateAction<string>>;
 
 }
 

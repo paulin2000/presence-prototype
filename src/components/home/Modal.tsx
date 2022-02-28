@@ -14,9 +14,9 @@ type tableauObjet = Array<{
 
 interface Props {
   modal: boolean;
-  setModal: any;
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
   userId: number;
-  setPersons: any;
+  setPersons: React.Dispatch<React.SetStateAction<tableauObjet>>;
   persons: tableauObjet;
 }
 

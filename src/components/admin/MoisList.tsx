@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 interface Props {
   id: number;
   data: any;
-  setMoisList: any;
+  setMoisList: React.Dispatch<React.SetStateAction<boolean>>;
 }
 interface objet {
   mois: string;

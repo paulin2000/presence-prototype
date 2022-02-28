@@ -1,6 +1,5 @@
 import io from "socket.io-client";
-import { useState, useEffect } from 'react';
-import { preProcessFile } from "typescript";
+import { useState} from 'react';
 
 
 const Server_Address: string = "http://localhost:5000";
@@ -17,7 +16,7 @@ interface UserInfo{
 
 interface Props{
   userInfo: any
-  setUpdateUserModal: any
+  setUpdateUserModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const UpdateUser = (props: Props) => {
@@ -52,9 +51,6 @@ const UpdateUser = (props: Props) => {
         
     })
     }
-    
-    
-    
   }
 
 
