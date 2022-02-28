@@ -22,6 +22,19 @@ const SignUp = (props: Props) => {
   const   [error, setError] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
 
+  const convertString=(role: string)=>{
+    switch (role) {
+      case "Employé":
+        return "employe"
+      case "Administration":
+        return "admin"
+      case "Comptabilité":
+        return "compta"
+      default:
+        break;
+    }
+  }
+
   const handleSubmit = (e:React.SyntheticEvent)=>{
     e.preventDefault()
     if(password !== confPassword){
@@ -35,7 +48,7 @@ const SignUp = (props: Props) => {
         last_name: lastName,
         sexe : sexe === "Feminin" ? "F" : "M",
         secret_code: password,
-        role: role === "Employé" ? "employe": (role === "Comptabilité" ? "compta" : "admin")}
+        role: convertString(role)}
       socket.emit("createUser",userData)
       socket.on("createUserSuccess",()=>{
         setSuccess(true)
