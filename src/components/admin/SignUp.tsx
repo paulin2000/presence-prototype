@@ -1,8 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import io from "socket.io-client";
-import Modal from 'react-bootstrap/Modal'
- 
 
 
 const Server_Address: string = "http://localhost:5000";
