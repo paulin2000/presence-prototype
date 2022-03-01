@@ -56,13 +56,12 @@ export const Modal = (props: Props) => {
 
   return (
     <div className="modal-container">
-      <div className="modalle">
           <div className="modal-code">
-            <span className="close" onClick={() => props.setModal(false)}>
-              &#10005;
-            </span>
             <form onSubmit={handleSubmit}>
-              <label>Entrer votre code secret</label>
+              <span className="close" onClick={() => props.setModal(false)}>
+                &#10005;
+              </span>
+              <label>Entrer votre mot de passe</label>
               <input
                 type="password"
                 className="input"
@@ -77,7 +76,6 @@ export const Modal = (props: Props) => {
               )}
             </form>
           </div>
-      </div>
     </div>
   );
 };

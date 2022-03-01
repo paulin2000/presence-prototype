@@ -101,11 +101,11 @@
 .home .presence-list .table-body #green {
   border-radius: 3px;
   color: #0cb60c;
-  border: 1px solid;
   font-weight: 600;
   background-color: #ddffd4;
   font-size: 12px;
-  padding: 0px 6px;
+  padding: 0px 4px;
+  padding-bottom: 2px;
   text-align: center;
   -webkit-transition: 2s;
   transition: 2s;
@@ -115,10 +115,10 @@
   border-radius: 3px;
   font-weight: 600;
   color: #ff0a21;
-  border: 1px solid;
   background-color: #ffe4e4;
   font-size: 12px;
-  padding: 0px 6px;
+  padding: 0px 4px;
+  padding-bottom: 2px;
   text-align: center;
   -webkit-transition: 2s;
   transition: 2s;
@@ -144,18 +144,6 @@
   z-index: 1212;
 }
 
-.home .modal-container .modalle {
-  position: relative;
-  background: #606162;
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  width: 314px;
-  -webkit-animation: modalopen 1s;
-          animation: modalopen 1s;
-  border-radius: px;
-  max-width: 90%;
-}
-
 @-webkit-keyframes modalopen {
   from {
     opacity: 0;
@@ -175,15 +163,21 @@
 }
 
 .home .modal-container .close {
-  margin-left: 290px;
-  color: whitesmoke;
+  position: absolute;
+  color: #3d3d3d;
   cursor: pointer;
+  z-index: 3;
+  top: 1px;
+  right: 9px;
 }
 
 .home .modal-container form {
-  background-color: whitesmoke;
-  padding: 20px;
   position: relative;
+  -webkit-animation: modalopen 1s;
+          animation: modalopen 1s;
+  background-color: whitesmoke;
+  padding: 16px;
+  border-radius: 4px;
 }
 
 .home .modal-container form label {
@@ -389,11 +383,11 @@
 .admin .presence-list-admin .table-body #green {
   border-radius: 3px;
   color: #0cb60c;
-  border: 1px solid;
   font-weight: 600;
   background-color: #ddffd4;
   font-size: 12px;
-  padding: 0px 6px;
+  padding: 0px 4px;
+  padding-bottom: 2px;
   text-align: center;
   -webkit-transition: 2s;
   transition: 2s;
@@ -403,11 +397,12 @@
   border-radius: 3px;
   font-weight: 600;
   color: #ff0a21;
-  border: 1px solid;
   background-color: #ffe4e4;
   font-size: 12px;
-  padding: 0px 6px;
+  padding: 0px 4px;
   text-align: center;
+  vertical-align: middle;
+  padding-bottom: 2px;
   -webkit-transition: 2s;
   transition: 2s;
 }

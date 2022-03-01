@@ -15,17 +15,13 @@ interface UserInfo{
 }
 
 interface Props{
-  userInfo: any
+  userInfo: UserInfo
   setUpdateUserModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const UpdateUser = (props: Props) => {
-  const [name, setname] = useState<string>(props.userInfo.first_name)
-  const [lastName, setLastName] = useState<string>(props.userInfo.last_name)
   const [password, setPassword] = useState<string>("")
   const [confPassword, setConfPassword] = useState<string>("")
-  const [sexe, setSexe] = useState<string>("")
-  const [role, setRole] = useState<string>("")
   const   [error, setError] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
   let UserData: UserInfo = props.userInfo
@@ -61,7 +57,10 @@ const UpdateUser = (props: Props) => {
         <div className="form-container">
           <div className="form-header">
             <h1>Update User</h1>
-            <span id="close" onClick={()=>{props.setUpdateUserModal(false)}}>&#10005;</span>
+            <span id="close" onClick={()=>{
+              UserData.first_name=""
+              UserData.last_name=""
+              props.setUpdateUserModal(false)}}>&#10005;</span>
           </div>
           <div className="form-body">
             <form action="" onSubmit={handleSubmit}>
@@ -74,7 +73,7 @@ const UpdateUser = (props: Props) => {
               </div>
               <div className="form-group two">
                 <input type="password" onChange={(e)=>{
-                  setPassword(e.target.value); UserData.secret_code = e.target.value;}}placeholder="New password" />
+                  setPassword(e.target.value); UserData.secret_code = e.target.value;}}placeholder="Password" />
                 <input type="password" onChange={(e)=>{setConfPassword(e.target.value)}}placeholder="Confirm password" />
               </div>
               <div className="form-group">
