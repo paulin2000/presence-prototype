@@ -468,6 +468,9 @@
 
 .mois-container .mois-list .mois {
   background-color: #f8f9fa;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   border: 1px solid #d1d3d5;
 }
 

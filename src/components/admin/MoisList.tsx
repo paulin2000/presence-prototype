@@ -23,8 +23,9 @@ const MoisList = (props: Props) => {
     const minutes = Math.floor(hoursms / (60 * 1000));
     return hours + "h : " + minutes + "m";
   };
-  const hourCumul = () => {
-    const cumulms = props.data.reduce((p: number, c: objet) => {
+  const hourCumul = (mois:string) => {
+    const moisData = props.data.filter((elmt:objet)=> elmt.mois === mois)
+    const cumulms = moisData.reduce((p: number, c: objet) => {
       return p + c.dayhour;
     }, 0);
     return HourMinutesFormat(cumulms);
@@ -32,7 +33,6 @@ const MoisList = (props: Props) => {
 
   useEffect(() => {
     if (props.data !== []) {
-      setCumul(hourCumul);
       const temp: string[] = props.data.map((element: objet) => {
         return element.mois;
       });
@@ -77,7 +77,7 @@ const MoisList = (props: Props) => {
                       })}
                   </ul>
                   <div id="somme">
-                    Heures Cumuléées: {cumul}
+                    Heures Cumuléées: {hourCumul(element)}
                   </div>
                 </div>
               );
